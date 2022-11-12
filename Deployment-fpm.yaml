@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fpm
+  labels:
+    app: fpm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fpm
+  template:
+    metadata:
+      labels:
+        app: fpm
+    spec:
+      volumes:
+        - name: config-pv-volume2
+          persistentVolumeClaim:
+            claimName: config-pv-claim
+      containers:
+      - name: fpm
+        image: php:7.4-fpm
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        volumeMounts:
+        - name: config-pv-volume2
+          mountPath: "/complex/path/to/files"
+
