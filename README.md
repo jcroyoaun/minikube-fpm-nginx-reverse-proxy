@@ -67,6 +67,7 @@ OPTION B ) If you don't want to push the repo to your docker hub repo, you can m
 
 
 3. Mount your current working directory (where all the yaml templates and Dockerfile are) so that you will allow minikube to resolve hostPath value from the PersistentVolume-fpm.yaml
+```
 export DIR=$(pwd)
 minikube mount $DIR:$DIR
 ```
