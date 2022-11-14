@@ -16,6 +16,7 @@ You have to first use minikube mount on a terminal to reference your working dir
 
 
 export DIR=($pwd)	
+
 minikube mount $DIR:$DIR
 
 
